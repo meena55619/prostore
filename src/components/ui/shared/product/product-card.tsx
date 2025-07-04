@@ -2,21 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
-interface Product {
-  slug: string;
-  name: string;
-  image: string[];
-}
-
-const ProductCard = ({ product }: { product: Product }) => {
-  const imageUrl = product.image?.[0] || "/placeholder.jpg";
+const ProductCard = ({ product }: { product: any }) => {
+  const imageUrl = product.image?.[0] || "./placeholder.jpg";
 
   return (
     <Card className="w-full max-w-sm">
       <CardHeader className="p-0 items-center">
         <Link href={`/product/${product.slug}`}>
           <Image
-            src={imageUrl}
+            src={product.images[0]}
             alt={product.name}
             height={300}
             width={300}
